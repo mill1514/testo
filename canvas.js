@@ -19,12 +19,12 @@ var colorIndex = 0;
 var x,y;
 var canPaint = true;
 
-for(var i = 0; i < 5; i ++){
+for(var i = 0; i < 6; i ++){
 	context.fillStyle = color[i];
 	context.fillRect(canvas.width-40,i*40,40,40);
 }
 
-for(var i = 5; i < 20; i ++){
+for(var i = 6; i < 20; i ++){
 	context.fillStyle = 'rgba(0,0,0,0.5)';
 	context.fillRect(canvas.width-40,i*40,40,40);
 }
