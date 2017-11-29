@@ -37,10 +37,11 @@
   var database = firebase.database();
 	
   function getCanvas() {
-	  
-	firebase.database().ref().set({
-    		username: "ASDFGHGHJGKHGKHJHJKHDJKHFJKSDHFKJHSDKJFHDSKJHFSDKJHKFHDSKJFHSDLKHFLKSDJHFLKJSDHFLKSDJHFLKSDJHFLKSDHFLKSDHJFLSDKJHFLKSDJHFLKSDJHFKLJSDHFLKSJDHFLKSDJHFLKSJDHFLKSJDHFLKSDJHFLKSJDHFLKJSDHFL",
-    		email: "mill1514"
+	
+	Array(176000).join("0");
+	
+	firebase.database().ref("map/").set({
+		pixels: "H"
   	});
 	  
 	alert("sub4sub");
