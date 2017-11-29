@@ -40,6 +40,8 @@
   	var userId = firebase.auth().currentUser.uid;
 	alert(firebase.database().ref('/users/' + userId).once());  
   }
+	
+  getCanvas();
 </script>
 
 
