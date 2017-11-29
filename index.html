@@ -37,11 +37,12 @@
   var database = firebase.database();
 	
   function getCanvas() {
+	alert("YO 2: TWICE THE YO");
   	var userId = firebase.auth().currentUser.uid;
 	alert(firebase.database().ref('/users/' + userId).once());  
   }
 	
-  alert("YO");
+  getCanvas();
 </script>
 
 
