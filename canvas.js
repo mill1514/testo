@@ -13,7 +13,7 @@ var color = ['rgb(0,0,0)'
 					,'rgb(0,255,0)'
 					,'rgb(0,0,255)'
  					,'rgb(128,0,0)'];
-var colorIndex = 0;
+var currColor = 0;
 
 var x,y;
 var canPaint = true;
@@ -50,28 +50,40 @@ function mouseClick(event) {
     }
     //console.log("second:"+x+" "+y);
     if(x > 0 && x < canvas.width - 40){
+	    
     	if(canPaint){
-    		paint(x, y, color);
+    		paint(x, y, currColor);
     		canPaint = false;
+		console.log("DRAW");
     	} else {
     		console.log("WAIT");
     	}
+	    
 	} else {
 		if(y < 160){
-			pickColor(x,y,color);
+			pickColor(x,y);
 		}
 	}
 }
 
-function paint(x, y, color){
+/* paint pixel given color (should be int) */
+function paint(x, y, colorIndex){
+	context.fillStyle = color[colorIndex];
 	context.fillRect(x,y,10,10);
-	console.log("DRAW");
 }
 
-function pickColor(x, y, color){
-	var choice = Math.round((y/40)) -1 ;
-	console.log("index"+ choice);
-	context.fillStyle = color[choice];
+/* Get index from x, y */
+function pickColor(x, y){
+	return Math.round((y/40)) - 1;
+}
+
+/* Colors the entire canvas using the 'canv' string */
+function colorCanvas(canv){
+	for (var i = 0; i < canvas.height; i++) {
+		for (var j = 0; j < canvas.width; j++) {
+			paint(i, j, canv[((i * canvas.height) + j) - 1]);
+		}
+	}
 }
 
 function enablePaint(){
