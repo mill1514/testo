@@ -37,9 +37,8 @@
   var database = firebase.database();
 	
   function getCanvas() {
-	alert("YO 2: TWICE THE YO");
-  	var userId = firebase.auth().currentUser.uid;
-	alert(firebase.database().ref('/users/' + userId).once());  
+	alert(firebase.database().ref().once());
+	alert("sub4sub");
   }
 	
   getCanvas();
