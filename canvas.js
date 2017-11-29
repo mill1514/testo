@@ -8,15 +8,14 @@ canvas.width = 440;
 canvas.height = 400;
 
 var context = canvas.getContext('2d');
+var currColor = 0;
+var canPaint = true;
 var color = ['rgb(0,0,0)'
 					,'rgb(255,0,0)'
 					,'rgb(0,255,0)'
 					,'rgb(0,0,255)'
  					,'rgb(128,0,0)'];
-var currColor = 0;
 
-var x,y;
-var canPaint = true;
 
 for(var i = 0; i < 5; i ++){
 	context.fillStyle = color[i];
@@ -34,8 +33,8 @@ setInterval(enablePaint, 3000);
 
 function mouseClick(event) {
 	// minus margin to get click position
-    x = event.clientX - 15;
-    y = event.clientY - 15;
+    var x = event.clientX - 15;
+    var y = event.clientY - 15;
     //console.log("first:"+x+" "+y);
     y = Math.round((y*10)/10);
     if(x % 10 < 5){
