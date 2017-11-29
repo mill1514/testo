@@ -18,7 +18,7 @@ var colorIndex = 0;
 var x,y;
 var canPaint = true;
 
-for(var i = 0; i < 4; i ++){
+for(var i = 0; i < 5; i ++){
 	context.fillStyle = color[i];
 	context.fillRect(canvas.width-40,i*40,40,40);
 }
