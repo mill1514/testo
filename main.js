@@ -1,5 +1,5 @@
 while (true) {
-  setTimeout(updateCanvas(), 5000);
+  setTimeout(updateCanvas(), 50000);
 }
 
 /* Pulls from Firebase and updates javscript canvas element */
