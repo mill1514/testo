@@ -37,7 +37,12 @@
   var database = firebase.database();
 	
   function getCanvas() {
-	alert(firebase.database().ref().once());
+	  
+	firebase.database().ref().set({
+    		username: "Brian",
+    		email: "mill1514"
+  	});
+	  
 	alert("sub4sub");
   }
 	
