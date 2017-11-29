@@ -11,7 +11,8 @@ var context = canvas.getContext('2d');
 var color = ['rgb(0,0,0)'
 					,'rgb(255,0,0)'
 					,'rgb(0,255,0)'
-					,'rgb(0,0,255)'];
+					,'rgb(0,0,255)'
+ 					,'rgb(128,128,128)'];
 var colorIndex = 0;
 
 var x,y;
