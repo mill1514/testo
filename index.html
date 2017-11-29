@@ -33,6 +33,13 @@
     messagingSenderId: "985213101820"
   };
   firebase.initializeApp(config);
+ 
+  var database = firebase.database();
+	
+  function getCanvas() {
+  	var userId = firebase.auth().currentUser.uid;
+	alert(firebase.database().ref('/users/' + userId).once());  
+  }
 </script>
 
 
