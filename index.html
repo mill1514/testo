@@ -35,19 +35,36 @@
   firebase.initializeApp(config);
  
   var database = firebase.database();
+  var x_max = 400;
+  var y_max = 440;
 	
-  function getCanvas() {
-	
-	var canv = Array(176000).join("0");
-	
-	firebase.database().ref("map/").set({
+  function getCanvas() {  
+	  return firebase.database().ref("map/").once("map");
+  }
+
+  function setCanvas(canv) {
+  	firebase.database().ref("map/").set({
 		pixels: canv
   	});
-	  
-	alert("sub4sub");
   }
 	
-  getCanvas();
+  function setPixel(x, y, val) {
+	  
+	  /* Get index of pixel to be changed */
+  	var index = (x_max * x) + y - 1;
+	  
+	  /* Get current canvas */
+	var currCanv = getCanvas();
+	  
+	  /* Change the pixel */
+	currCanv[index] = val;
+	  
+	  /* Set canvas to updated canvas */
+	setCanvas(currCanv);
+  }
+	
+  alert(getCanvas());
+	
 </script>
 	
 	
