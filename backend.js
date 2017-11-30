@@ -17,7 +17,7 @@
 	
   /* Gets the entire canvas data in string form */
   function getCanvas() {  
-	  return firebase.database().ref("map/").once('value');
+	  return firebase.database().once('map/pixels');
   }
 
   /* Sets the entire canvas */
