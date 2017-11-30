@@ -20,13 +20,31 @@
 <body>
 		<input type="text" name="email">
 		<input type="text" name="name">
+		<button type="button" onclick="updateCanvas()">- Update Canvas -</button>
 		</br>
 		<canvas></canvas>
 	
 		<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 		<script src="backend.js"></script>
 		<script src="canvas.js"></script>
-		<script src="main.js"></script>
+		<script>
+			
+
+
+		/* Pulls from Firebase and updates javscript canvas element */
+		function updateCanvas () {
+  
+  			console.log("UPDATING");
+  
+  			/* pull data */
+  			var canv = getCanvas();
+  
+  			/* put into canvas */
+  			colorCanvas(canv);
+		}
+			
+		</script>
+	
 	
 </body>
 
