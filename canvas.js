@@ -80,7 +80,7 @@ function pickColor(x, y){
 function colorCanvas(canv){
 	for (var i = 0; i < canvas.height; i++) {
 		for (var j = 0; j < canvas.width; j++) {
-			paint(i, j, canv[((i * canvas.height) + j) - 1]);
+			paint(i, j, parseInt(canv[((i * canvas.height) + j) - 1]));
 		}
 	}
 }
