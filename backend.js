@@ -10,15 +10,24 @@
   };
 
   firebase.initializeApp(config);
- 
-  var database = firebase.database();
-  var x_max = 400;
-  var y_max = 440;
+
+  var x_max = 120;
+  var y_max = 80;
+  var map = null; // This is where pixel data is stored locally
 	
   /* Gets the entire canvas data in string form */
   function getCanvas() {  
-	  
-	  return firebase.database().ref('map/pixels').once('value');
+
+    firebase.database().ref('map/').once('value').then(function(snapshot) {
+      map = snapshot.val().pixels;
+      colorCanvas(map);
+      //console.log(map);
+    });
+
+  }
+
+  function getMap() {
+  	return map;
   }
 
   /* Sets the entire canvas */
@@ -26,23 +35,39 @@
 	  
 	  /* Set the canvas as the given string */
   	firebase.database().ref("map/").set({
-		pixels: canv
+		  pixels: canv
   	});
+
   }
 
   /* Sets a pixel of the canvas */
   function setPixel(x, y, val) {
 	  
 	  /* Get index of pixel to be changed */
-        var index = (x_max * y) + x - 1;
+    var index = (x_max * y) + x - 1;
 	  
-	  /* Get current canvas */
-	var currCanv = getCanvas();
-	  
-	  /* Change the pixel */
-	currCanv[index] = val;
-	  
-	  /* Set canvas to updated canvas */
-	setCanvas(currCanv);
+    /* Get current firebase map */
+	  firebase.database().ref('map/').once('value').then(function(snapshot) {
+      map = snapshot.val().pixels;
+
+      console.log("map["+index+"] used to be: "+ map[index]);
+
+      console.log("Setting to "+val+"...")
+
+      /* Set index to new val */
+      map = map.replaceAt(index, val.toString());
+
+      console.log("Now: map["+index+"] is: "+ map[index]);
+
+      /* Update firebase */
+      setCanvas(map);
+
+      /* Update our canvas */
+      colorCanvas(map);
+    });
+
   }
 
+  String.prototype.replaceAt=function(index, replacement) {
+    return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+  }

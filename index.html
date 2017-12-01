@@ -18,37 +18,15 @@
 </head>
 	
 <body>
+	
+		<canvas></canvas><br>
 		<input type="text" name="email">
 		<input type="text" name="name">
-		<button type="button" onclick="updateCanvas()">- Update Canvas -</button>
-		</br>
-		<canvas></canvas>
-	
+		<button type="button" onclick="getCanvas()">- Update Canvas -</button>
+
 		<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 		<script src="backend.js"></script>
-		<script src="canvas.js"></script>
-		<script>
-			
-
-
-		/* Pulls from Firebase and updates javscript canvas element */
-		function updateCanvas () {
-  
-  			console.log("UPDATING");
-  
-  			/* pull data */
-  			var canv = getCanvas();
-  
-			setTimeout(function() {console.log("bonetown")}, 3000);
-			setTimeout(function() {console.log(canv)}, 10000);
-			//console.log(canv.slice(1,40));
-			
-  			/* put into canvas */
-  			colorCanvas(canv);
-		}
-			
-		</script>
-	
+		<script src="canvas.js"></script>	
 	
 </body>
 
