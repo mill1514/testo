@@ -1,5 +1,5 @@
 console.log('CS 252 Lab6 - HTML Test');
-
+// This is just a test, this isn't real or anything. Don't get so worked up next time
 document.addEventListener("click", mouseClick);
 
 var canvas = document.querySelector('canvas');
