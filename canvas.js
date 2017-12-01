@@ -12,6 +12,7 @@ var pixHeight = 80;
 var context = canvas.getContext('2d');
 var currColor = 0;
 var canPaint = true;
+var paintInterval = 1000; // How long between pixels for user
 var color = ['rgb(0,0,0)' // Black
 					,'rgb(255,0,0)' // Red
 					,'rgb(0,255,0)' // Green
@@ -19,6 +20,7 @@ var color = ['rgb(0,0,0)' // Black
  					,'rgb(128,0,0)' // Maroon?
  					,'rgb(255,255,255)']; // White
 
+/* Runs on load */
 function initializeCanvas() {
 	/* Filling in color pallete on right */
 	for(var i = 0; i < 5; i ++){
@@ -34,7 +36,7 @@ function initializeCanvas() {
 
 	context.fillStyle = color[0];
 
-	setInterval(enablePaint, 3000);
+	setInterval(enablePaint, paintInterval);
 }
 
 function mouseClick(event) {
